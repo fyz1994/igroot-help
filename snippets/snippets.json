@@ -1,0 +1,63 @@
+{
+  "import withLogin from sso": {
+    "prefix":"login", 
+    "body":[
+        "import { withLogin } from 'sso-login'"
+    ], 
+    "description":"从 sso-login 中引入 withLogin 高阶组件"
+  },
+  "import handleTokenInvalid from sso": {
+    "prefix":"token", 
+    "body":[
+        "import { handleTokenInvalid } from 'sso-login'"
+    ], 
+    "description":"从 sso-login 中引入 handleTokenInvalid"
+  },
+  "import logout from sso": {
+    "prefix":"logout", 
+    "body":[
+        "import { logout } from 'sso-login'"
+    ], 
+    "description":"从 sso-login 中引入 logout"
+  },
+  "import logout and handleTokenInvalid from sso": {
+    "prefix":"lh", 
+    "body":[
+        "import { logout,handleTokenInvalid } from 'sso-login'"
+    ], 
+    "description":"从 sso-login 中引入 logout 和 handleTokenInvalid"
+  },
+  "import BaseLayout from igroot-frame-layout": {
+    "prefix":"il", 
+    "body":[
+        "import BaseLayout from 'igroot-frame-layout'"
+    ], 
+    "description":"引入 igroot-frame-layout 组件"
+  },
+  "use BaseLayout": {
+    "prefix":"layout", 
+    "body":[
+        "<BaseLayout",
+        "\tapiDomain='$1'",
+        "\tappName='$2'>",
+        "$3",
+        "</BaseLayout>"
+    ], 
+    "description":"使用BaseLayout"
+  },
+  "use igrootFetch": {
+    "prefix":"fetch", 
+    "body":[
+        "import igrootFetch from 'igroot-fetch'",
+        "window.graphQLApi = igrootFetch(domain+'/graphql',{",
+        "\thandleErrors: ({ code, msg }) => {",
+        "\t\tif (code == '44') {\n\t\t\thandleTokenInvalid(domain)\n\t\t\treturn\n\t\t}",
+        "\t\tif (code != 0) {\n\t\t\tmessage.error(msg)\n\t\t}",
+        "\t},",
+        "\thandleHttpErrors: (response) => {",
+        "\t\tnotification.error({\n\t\t\tmessage: 'Http Error',\n\t\t\tdescription: response.statusText\n\t\t})",
+        "\t}\n})"
+    ], 
+    "description":"引入fetch，并使用"
+  }
+}

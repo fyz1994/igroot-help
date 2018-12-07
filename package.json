@@ -1,0 +1,25 @@
+{
+    "name": "igroot-help",
+    "displayName": "igroot-help",
+    "description": "igroot-help",
+    "version": "0.0.1",
+    "publisher": "yizhenfan",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fyz1994/igroot-help.git"
+    },
+    "engines": {
+        "vscode": "^1.29.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "javascipt",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}
